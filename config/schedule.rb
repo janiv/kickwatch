@@ -1,28 +1,7 @@
-# Use this file to easily define all of your cron jobs.
-#
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
+job_type :local_command, 'cd :path && :task :output'
 
-# Example:
-#
-# set :output, "/path/to/my/cron_log.log"
-#
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
+set :output, {:error => 'logs/error.log', :standard => 'logs/success.log'}
 
-# Learn more: http://github.com/javan/whenever
-
-job_type :ruby, 'cd :path && ruby :task :output'
-
-set :output, {:error => 'logs/error.log', :standard => nil}
-
-every 5.minutes do
-    ruby "projectWatcher.rb"
+every 3.minutes do
+    local_command "./projectWatcher.rb -p dice_vault -e"
 end
