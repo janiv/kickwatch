@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'bundler/setup'
+
 require 'kickscraper'
 require 'optparse'
 require 'yaml'
