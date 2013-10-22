@@ -33,7 +33,7 @@ if options[:send_email]
     Mail.defaults do
       delivery_method :smtp, {
         :address => 'smtp.gmail.com',
-        :port => '875',
+        :port => '587',
         :user_name => kickwatch_config['kickstarter_gamil_username'],
         :password => kickwatch_config['kickstarter_gmail_password'],
         :authentication => :plain,
