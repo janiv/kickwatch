@@ -62,11 +62,12 @@ project.rewards.each {|reward|
 
     if project_config['rewards'].include? reward.id
         if reward.remaining > 0
+            reward_changed = previous_reward.nil? || previous_reward.remaining == 0
             subject = "Kickstarter Alert: Found #{reward.remaining} opening(s) for #{reward.name}"
             body = "#{reward.reward}\n\n#{reward.remaining} Left"
 
             if options[:send_email]
-                if previous_reward.nil? || previous_reward.remaining == 0
+                if reward_changed
                     Mail.deliver do
                        from     'no-reply@kickstater.com'
                        to       kickwatch_config['kickstarter_email']
@@ -75,7 +76,7 @@ project.rewards.each {|reward|
                     end
                 end
             else
-                if previous_reward.nil? || previous_reward.remaining == 0
+                if reward_changed
                     puts '==='
                     puts subject
                     puts body
