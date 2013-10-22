@@ -93,7 +93,7 @@ project.rewards.each {|reward|
     end
 
     if old_rewards
-        unless old_rewards.include? reward
+        unless old_rewards.select{|r| r.id == reward.id}.first
             subject = "Kickstart Alert: New Reward Level \"#{reward.name}\" Found!"
             body = "#{reward.reward}"
             if reward.remaining
