@@ -1,3 +1,7 @@
 dice_vault:
     slug: the-dice-vault-a-handcrafted-wooden-case-for-gamin
     rewards: [2049887, 2035701, 1997813, 1997804]
+
+shadows:
+    slug: shadows-of-brimstone
+    rewards: [2070160, 2070173]
