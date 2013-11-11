@@ -1,3 +1,7 @@
 shadows:
     slug: shadows-of-brimstone
     rewards: [2070160, 2070173]
+
+keyflower:
+    slug: keyflower-the-farmers
+    rewards: [2106474]
